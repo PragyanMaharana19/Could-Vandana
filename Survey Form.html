@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="icon" href="survey.png">
+
+    <style>
+        body
+        {
+            background-color: rgb(93, 93, 248);
+            height: 200vh;
+            overflow: hidden;
+        }
+
+        h1
+        {
+            word-spacing: 3px;
+            letter-spacing: 1px;
+            font-family: 'Alkatra', cursive;
+        }
+
+
+        .surveyform
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        form
+        {
+            width: 700px;
+            height: 600px;
+            border: 2px solid black;
+            background-color: white;
+
+            box-shadow: 10px 10px 20px black;
+            border-radius: 10px;
+
+            /* font-family: 'Tapestry', cursive; */
+        }
+        .formMarging
+        {
+            border: 2px solid black;
+        }
+
+        .content
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+        .content1
+        {
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+        .content2
+        {
+            margin-right: 30px;
+            margin-top: 30px;
+        }
+        .box
+        {
+            width: 300px;
+            height: 30px;
+            
+            border-radius: 10px;
+        }
+        .box:hover
+        {
+            background-color: rgb(230, 225, 225);
+            transition: 0.5s ease;
+        }
+        label
+        {
+            font-size: 20px;
+            /* padding-bottom: 5px; */
+            display: block;
+        }
+
+        .question
+        {
+            padding-top: 20px;
+            padding-left: 30px;
+        }
+        .answer
+        {
+            padding: 5px 0px;
+        }
+        .move
+        {
+            padding-left: 40px;
+        }
+ 
+        textarea
+        {
+            border-radius: 10px;
+        }
+
+        button
+        {
+            width: 100px;
+            height: 40px;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+            
+
+            background-color: #687EFF;
+
+            border-radius: 10px;
+
+            position: relative;
+            bottom: -30px;
+
+            cursor: pointer;
+        }
+        button:hover
+        {
+            background-color: #98E4FF;
+            border: 2px solid #98E4FF;
+            box-shadow: 5px 5px 10px #98E4FF;
+
+            transition: 0.5s ease;
+            font-style: italic;
+        }
+
+   </style>
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+
+
+<body>
+    
+    <center><h1>Customer Survey Form</h1></center>
+
+    <div class="surveyform">
+
+        <form action="Survey Form.html" method="post">
+
+            <div class="formMargin">
+
+                <div class="content">
+                    <div class="content1">
+                        <label for="">Name</label><br>
+                        <input type="text" class="box" placeholder="Kindly enter your name" name="name" >
+                    </div>
+    
+                    <div class="content2">
+                        <label for="">Email</label> <br>
+                        <input type="email" class="box" placeholder="Please enter your mail Id" name="mail" >
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="answer">
+                        <p>Is this first time you are using our product & service ?</p>
+                        <input type="radio" id="yes" name="survey" value="yes" > Yes <span class="move"></span> <input type="radio" id="no" name="survey" value="no" > No
+                    </div>
+
+                    <div class="answer">
+                        <p>Would you suggest to your friend and colleague ?</p>
+                        <input type="radio" id="yes1" name="survey1" value="yes1"> Yes <span class="move"></span> <input type="radio" id="no1" name="survey1" value="no1"> No
+                    </div>
+
+                    <div class="answer">
+                        <p>How satisfied with our company over all ?</p>
+                        <input type="radio" id="satisfied" name="survey2" value="satisfied">Satisfied  
+                        <span class="move"></span>  
+                        <input type="radio" id="undecided" name="survey2" value="undecided">Undecided
+                        <span class="move"></span>  
+                        <input type="radio" id="unsatisfied" name="survey2" value="unsatisfied">Unsatisfied
+                    </div>
+
+                    <div class="answer">
+                        <p>Do you have any suggestion to improve our services ?</p>
+                        <textarea name="" id="" cols="85" rows="5">
+
+                        </textarea>
+                    </div>
+
+                    <button type="reset" onclick="showInformation()">Submit</button>
+                </div>
+
+
+            </div>
+            
+      
+        </form>
+
+    </div>
+
+    <script>
+        function showInformation() 
+        {
+          alert("Thanks a lot for your feedback...");    
+        }
+    </script>
+
+</body>
+</html>
