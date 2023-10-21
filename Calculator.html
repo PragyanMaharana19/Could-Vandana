@@ -247,123 +247,83 @@
     </div>
 </body>
 
-<!-- <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    const queryDisplay = document.querySelector('.query');
-    const resultDisplay = document.querySelector('.show');
-    let currentQuery = '';
-
-    // Function to update the display
-    function updateDisplay() {
-        queryDisplay.textContent = currentQuery;
-    }
-
-    // Function to perform the calculation
-    function calculate() {
-        try {
-            const result = Function(`'use strict'; return (${currentQuery})`)();
-            if (result === undefined || isNaN(result)) {
-                resultDisplay.textContent = 'Error';
-            } else {
-                resultDisplay.textContent = result;
-            }
-        } catch (error) {
-            resultDisplay.textContent = 'Error';
-        }
-    }
-
-    // Add event listeners to each number
-    const numbers = document.querySelectorAll('.ten');
-    numbers.forEach(number => {
-        number.addEventListener('click', () => {
-            currentQuery += number.textContent;
-            updateDisplay();
-        });
-    });
-
-    // Add event listeners to each operator
-    const operators = document.querySelectorAll('.column');
-    operators.forEach(operator => {
-        operator.addEventListener('click', () => {
-            currentQuery += operator.textContent.trim();
-            updateDisplay();
-        });
-    });
-
-    // Add event listener to clear button
-    const clearButton = document.querySelector('.allclear');
-    clearButton.addEventListener('click', () => {
-        currentQuery = '';
-        queryDisplay.textContent = '';
-        resultDisplay.textContent = '';
-    });
-
-    // Add event listener to equal button
-    const equalButton = document.getElementById('equal');
-    equalButton.addEventListener('click', () => {
-        calculate();
-    });
-   });
-
-</script> -->
 
 <script>
 
 document.addEventListener('DOMContentLoaded', function() {
-    const queryDisplay = document.querySelector('.query');
-    const resultDisplay = document.querySelector('.show');
-    let currentQuery = '';
+        const queryDisplay = document.querySelector('.query');
+        const resultDisplay = document.querySelector('.show');
+        let currentQuery = '';
 
-    // Function to update the display
-    function updateDisplay() {
-        queryDisplay.textContent = currentQuery;
-    }
-
-    // Function to perform the calculation
-    function calculate() {
-        try {
-            const result = eval(currentQuery);
-            resultDisplay.textContent = result;
-        } catch (error) {
-            resultDisplay.textContent = 'Error';
+        // Function to update the display
+        function updateDisplay() {
+            queryDisplay.textContent = currentQuery;
         }
-    }
 
-    // Add event listeners to each number
-    const numbers = document.querySelectorAll('.ten');
-    numbers.forEach(number => {
-        number.addEventListener('click', () => {
-            currentQuery += number.textContent;
-            updateDisplay();
+        // Function to perform the calculation
+        function calculate() {
+            try {
+                const operator = currentQuery.match(/[+\-*/]/);
+                const operands = currentQuery.split(operator);
+                const a = parseFloat(operands[0]);
+                const b = parseFloat(operands[1]);
+                let result;
+                switch (operator[0]) {
+                    case '+':
+                        result = a + b;
+                        break;
+                    case '-':
+                        result = a - b;
+                        break;
+                    case '*':
+                        result = a * b;
+                        break;
+                    case '/':
+                        result = a / b;
+                        break;
+                    default:
+                        result = 'Error';
+                }
+                resultDisplay.textContent = result;
+            } catch (error) {
+                resultDisplay.textContent = 'Error';
+            }
+        }
+
+        // Add event listeners to each number
+        const numbers = document.querySelectorAll('.ten');
+        numbers.forEach(number => {
+            number.addEventListener('click', () => {
+                currentQuery += number.textContent;
+                updateDisplay();
+            });
+        });
+
+        // Add event listeners to each operator
+        const operators = document.querySelectorAll('.column');
+        operators.forEach(operator => {
+            operator.addEventListener('click', () => {
+                currentQuery += operator.textContent.trim();
+                updateDisplay();
+            });
+        });
+
+        // Add event listener to clear button
+        const clearButton = document.querySelector('.allclear');
+        clearButton.addEventListener('click', () => {
+            currentQuery = '';
+            queryDisplay.textContent = '';
+            resultDisplay.textContent = '';
+        });
+
+        // Add event listener to equal button
+        const equalButton = document.getElementById('equal');
+        equalButton.addEventListener('click', () => {
+            calculate();
         });
     });
-
-    // Add event listeners to each operator
-    const operators = document.querySelectorAll('.column');
-    operators.forEach(operator => {
-        operator.addEventListener('click', () => {
-            currentQuery += operator.textContent.trim();
-            updateDisplay();
-        });
-    });
-
-    // Add event listener to clear button
-    const clearButton = document.querySelector('.allclear');
-    clearButton.addEventListener('click', () => {
-        currentQuery = '';
-        queryDisplay.textContent = '';
-        resultDisplay.textContent = '';
-    });
-
-    // Add event listener to equal button
-    const equalButton = document.getElementById('equal');
-    equalButton.addEventListener('click', () => {
-        calculate();
-    });
-});
-
-
+    
 </script>
 
 </html>
