@@ -51,7 +51,7 @@ public class RomanToInteger {
             case 'M':
                 return 1000;
             default:
-                return 0; // Invalid Roman numeral character
+                return 0; 
         }
 	}
 
